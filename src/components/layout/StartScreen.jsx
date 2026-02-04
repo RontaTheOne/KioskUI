@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function StartScreen() {
   return (
     <div className="start-screen">
@@ -9,9 +10,9 @@ function StartScreen() {
         <p className="lead mb-4">
           Haz tu pedido en segundos. Elige tú comida, personaliza y paga.
         </p>
-        <button type="button" className="btn btn-outline-primary">
+        <Link to="/order-type" className="btn btn-outline-primary">
           Empezar
-        </button>
+        </Link>
 
         <small className="d-block mt-4 text-secondary">
           <i class="bi bi-hand-index-thumb-fill"></i> Presiona “Empezar” para
@@ -19,6 +20,7 @@ function StartScreen() {
         </small>
       </div>
 
+      {/*Botones de idiomas */}
       <div className="fab-container">
         {/* Botones secundarios */}
         <div className="fab-options">
