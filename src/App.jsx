@@ -1,12 +1,12 @@
 import React from "react";
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import "./assets/styles/StartScreen.css";
 import Start from "./components/layout/StartScreen.jsx";
-import Layout from "./components/layout/layout.jsx"
+import Layout from "./components/layout/layout.jsx";
 import Menu from "./pages/Menu.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import OrderSuccess from "./pages/OrderSuccess.jsx";
-
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="*" element={<Navigate to="/menu" replace />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
