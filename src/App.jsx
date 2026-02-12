@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import "./App.css";
 import "./assets/styles/StartScreen.css";
+import "./assets/styles/OrderType.css";
+import "./assets/styles/Carousel.css";
 import Layout from "./components/layout/layout.jsx";
 import Start from "./components/layout/StartScreen.jsx";
 import OrderType from "./components/layout/OrderType.jsx";
