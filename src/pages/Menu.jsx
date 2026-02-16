@@ -66,7 +66,7 @@ function Menu() {
             <span className="text-black">Postres</span>
           </Link>
         </div>
-        <br /> <br />
+        <br/> <br/>
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="mb-0">¿Qué quieres comer hoy?</h2>
 
@@ -178,6 +178,7 @@ function Menu() {
             </div>
           </div>
         </div>
+        
       </div>
 
       <div className="cart-bar d-flex align-items-center justify-content-between px-4">
@@ -187,17 +188,49 @@ function Menu() {
           <span className="fw-bold fs-5">$ 33.02</span>
         </div>
 
-        {/* Carrito central */}
-        <div className="cart-wrapper position-relative d-flex align-items-center justify-content-center">
+        {/* Carrito central (trigger offcanvas) */}
+        <button
+          type="button"
+          className="cart-wrapper position-relative d-flex align-items-center justify-content-center"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#cartOffcanvas"
+          aria-controls="cartOffcanvas"
+        >
           <i className="bi bi-cart-fill cart-icon"></i>
-
           {/* Badge */}
           <span className="cart-badge">0</span>
-        </div>
+        </button>
 
         {/* Botón pagar */}
         <button className="btn btn-danger pay-btn">Pagar</button>
       </div>
+
+      {/* Offcanvas para el carrito */}
+      <div
+        className="offcanvas offcanvas-bottom"
+        tabIndex="-1"
+        id="cartOffcanvas"
+        aria-labelledby="cartOffcanvasLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="cartOffcanvasLabel">Tu carrito</h5>
+          <button
+            type="button"
+            className="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          <p>Contenido del carrito aquí.</p>
+          <div className="d-flex justify-content-between align-items-center mt-3">
+            <small className="text-muted">Total</small>
+            <span className="fw-bold fs-5">$ 33.02</span>
+          </div>
+          <Link to="/checkout" className="btn btn-danger mt-3">Ir a pagar</Link>
+        </div>
+      </div>
+
     </div>
   );
 }
