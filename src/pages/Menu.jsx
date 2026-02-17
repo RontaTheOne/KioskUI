@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CartOffcanvas from "../components/Cart/CartOffcanvas";
 function Menu() {
   return (
     <div className="menu-page">
@@ -66,7 +67,7 @@ function Menu() {
             <span className="text-black">Postres</span>
           </Link>
         </div>
-        <br /> <br />
+        <br/> <br/>
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="mb-0">¿Qué quieres comer hoy?</h2>
 
@@ -178,6 +179,7 @@ function Menu() {
             </div>
           </div>
         </div>
+        
       </div>
 
       <div className="cart-bar d-flex align-items-center justify-content-between px-4">
@@ -187,17 +189,26 @@ function Menu() {
           <span className="fw-bold fs-5">$ 33.02</span>
         </div>
 
-        {/* Carrito central */}
-        <div className="cart-wrapper position-relative d-flex align-items-center justify-content-center">
+        {/* Carrito*/}
+        <button
+          type="button"
+          className="cart-wrapper position-relative d-flex align-items-center justify-content-center"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#cartOffcanvas"
+          aria-controls="cartOffcanvas"
+        >
           <i className="bi bi-cart-fill cart-icon"></i>
-
           {/* Badge */}
           <span className="cart-badge">0</span>
-        </div>
+        </button>
 
         {/* Botón pagar */}
         <button className="btn btn-danger pay-btn">Pagar</button>
       </div>
+
+      <CartOffcanvas total="33.02">
+      </CartOffcanvas>
+
     </div>
   );
 }
