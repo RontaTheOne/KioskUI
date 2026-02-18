@@ -21,7 +21,7 @@ function OrderType() {
                   alt="Eat in"
                   className="order-card__img"
                 />
-                <span className="order-card__label">Eat in</span>
+                <span className="order-card__label">Comer aquí</span>
               </button>
             </Link>
           </div>
@@ -33,7 +33,7 @@ function OrderType() {
             <Link to="/menu" style={{ textDecoration: "none" }}>
               <button className="order-card order-card--take" type="button">
                 <img src="bag.png" alt="Take out" className="order-card__img" />
-                <span className="order-card__label">Take out</span>
+                <span className="order-card__label">Para llevar</span>
               </button>
             </Link>
           </div>

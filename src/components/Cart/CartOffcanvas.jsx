@@ -47,7 +47,7 @@ export default function CartOffcanvas({
           aria-label="Close"
         ></button>
       </div>
-      <div className="offcanvas-body" style={{ overflowY: "auto", maxHeight: "calc(80vh - 120px)" }}>
+      <div className="offcanvas-body" style={{ overflowY: "auto", maxHeight: "calc(85vh - 120px)" }}>
         {isEmpty ? (
           <div className="text-center py-5">
             <h5 className="text-muted">Su orden está vacía</h5>
