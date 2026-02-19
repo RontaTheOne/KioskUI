@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Checkout() {
+  const navigate = useNavigate();
   return (
     <div className="checkout-page">
       <nav className="navbar bg-body-tertiary ustify-content-center">
@@ -10,7 +12,7 @@ function Checkout() {
         </div>
       </nav>
       <div className="container my-2">
-        <h1 className="display-1 text-center">¿Como deseas pagar?</h1>
+        <h1 className="display-2 text-center">¿Como deseas pagar?</h1>
 
         <div className="d-flex flex-column align-items-center gap-3">
           <Link to="/menu" style={{ textDecoration: "none" }}>
@@ -30,7 +32,7 @@ function Checkout() {
         <h4 className="text-muted text-center">$ 33.02</h4>
         <hr></hr>
         <div className="text-center mt-4 d-flex gap-3 justify-content-center">
-          <button className="btn btn-outline-danger">Regresar</button>
+          <button className="btn btn-outline-danger" onClick={() => navigate(-1)}>Regresar</button>
         </div>
       </div>
     </div>
