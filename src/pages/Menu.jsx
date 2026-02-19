@@ -203,7 +203,9 @@ function Menu() {
         </button>
 
         {/* Botón pagar */}
-        <button className="btn btn-danger pay-btn">Pagar</button>
+        <Link to="/checkout" className="btn btn-danger pay-btn">
+          Pagar
+        </Link>
       </div>
 
       <CartOffcanvas total="33.02">

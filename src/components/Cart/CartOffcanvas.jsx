@@ -36,7 +36,7 @@ export default function CartOffcanvas({
       style={{ height: "auto", maxHeight: "80vh" }}
     >
       <div className="offcanvas-header">
-        <h1 className="offcanvas-title" id={label}>
+        <h1 className="offcanvas-title text-danger" id={label}>
           Mi Orden
         </h1>
 
@@ -66,13 +66,13 @@ export default function CartOffcanvas({
                       <h6 className="card-title mb-1">Big King</h6>
                       <p className="text-muted small mb-2">No onion, pickle</p>
                       <div className="input-group" style={{ width: "140px" }}>
-                        <button className="btn btn-outline-secondary" type="button" onClick={() => handleDecrease(i)}>−</button>
+                        <button className="btn btn-outline-danger" type="button" onClick={() => handleDecrease(i)}>−</button>
                         <input type="text" className="form-control text-center" value={quantities[i]} readOnly />
-                        <button className="btn btn-outline-secondary" type="button" onClick={() => handleIncrease(i)}>+</button>
+                        <button className="btn btn-outline-danger" type="button" onClick={() => handleIncrease(i)}>+</button>
                       </div>
                     </div>
                     <div className="text-end">
-                      <span className="fw-bold fs-6">$ 4.10</span>
+                      <span className="fw-bold fs-6 text-danger">$ 4.10</span>
                     </div>
                   </div>
                 </div>
