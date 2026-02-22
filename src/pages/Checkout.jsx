@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { QRCodeCanvas } from "qrcode.react"; 
+import ModalPayCounter from "../components/Checkout/ModalPayCounter";
+import ModalPayCard from "../components/Checkout/ModalPayCard";
+
 function Checkout() {
   const navigate = useNavigate();
   return (
@@ -20,6 +22,8 @@ function Checkout() {
             className="card p-3 d-flex flex-column align-items-center justify-content-center"
             style={{ width: "400px", height: "200px" }}
             type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#ModalPayCard"
           >
             <i className="bi bi-credit-card fs-1"></i>
             <span className="order-card__label">Pago con Tarjetas</span>
@@ -30,7 +34,7 @@ function Checkout() {
             style={{ width: "400px", height: "200px" }}
             type="button"
             data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
+            data-bs-target="#ModalPayCounter"
           >
             <i className="bi bi-cash-coin fs-1"></i>
             <span className="order-card__label">Pago en caja</span>
@@ -48,40 +52,9 @@ function Checkout() {
           </button>
         </div>
       </div>
-
-      <div
-        className="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">
-                Pagar en caja
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">...
-                <QRCodeCanvas value={123} size={200} />
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary">
-                Understood
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+      <ModalPayCounter />
+      <ModalPayCard />
     </div>
   );
 }

@@ -11,7 +11,6 @@ import OrderType from "./components/layout/OrderType.jsx";
 import Menu from "./pages/Menu.jsx";
 import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
-import OrderSuccess from "./pages/OrderSuccess.jsx";
 
 function App() {
   return (
@@ -23,9 +22,8 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/order-success/:id" element={<OrderSuccess />} />
         </Route>
-        <Route path="*" element={<Navigate to="/ " replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
