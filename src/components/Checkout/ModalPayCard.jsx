@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function ModalPayCard() {
   const [paymentState, setPaymentState] = useState('iniciar'); // Estados posibles: 'iniciar', 'acercar', 'aprobado', 'rechazado'
