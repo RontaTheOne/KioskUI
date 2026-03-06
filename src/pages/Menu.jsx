@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import CartOffcanvas from "../components/Cart/CartOffcanvas";
+import ModalProduct from "../components/Product/ModalProduct";
+
 function Menu() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const modalRef = useRef(null);
@@ -100,35 +102,21 @@ function Menu() {
           {[
             {
               name: "Big King",
+              description: "Deliciosa hamburguesa con doble carne, queso, lechuga y salsa especial.",
               price: 4.1,
               img:
                 "https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile",
             },
             {
               name: "Whopper",
+              description: "Clásica hamburguesa con carne a la parrilla, tomate, lechuga, mayonesa y ketchup.",
               price: 4.19,
               img:
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YDCJqgMFtsD9dBn2uch0RTrROXHmvr1vnw&s",
             },
             {
               name: "Rodeo Whopper",
-              price: 2.99,
-              img: "https://images.rappi.com/restaurants_background/home76-1747260915136.jpg",
-            },
-            {
-              name: "Big King",
-              price: 4.1,
-              img:
-                "https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile",
-            },
-            {
-              name: "Whopper",
-              price: 4.19,
-              img:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YDCJqgMFtsD9dBn2uch0RTrROXHmvr1vnw&s",
-            },
-            {
-              name: "Rodeo Whopper",
+              description: "Hamburguesa con carne a la parrilla, aros de cebolla crujientes, salsa barbacoa, lechuga y mayonesa.",
               price: 2.99,
               img: "https://images.rappi.com/restaurants_background/home76-1747260915136.jpg",
             },
@@ -200,141 +188,7 @@ function Menu() {
       </div>
 
       {/* product configuration modal */}
-      <div
-        className="modal fade"
-        id="productModal"
-        ref={modalRef}
-        tabIndex="-1"
-        aria-labelledby="productModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-lg">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="productModalLabel">
-                {selectedProduct ? selectedProduct.name : 'Producto'}
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              {selectedProduct && (
-                <div className="text-center mb-3">
-                  <img
-                    src={selectedProduct.img}
-                    className="img-fluid product-img mb-2"
-                    alt={selectedProduct.name}
-                    style={{ maxHeight: 150 }}
-                  />
-                  <p className="fw-bold mb-1">
-                    $ {selectedProduct.price.toFixed(2)}
-                  </p>
-                </div>
-              )}
-              <div className="mb-3">
-                <h6>Tamaño</h6>
-                <div className="btn-group" role="group" aria-label="size">
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="size"
-                    id="sizeSmall"
-                    autoComplete="off"
-                  />
-                  <label className="btn btn-outline-primary" htmlFor="sizeSmall">
-                    Pequeño
-                  </label>
-
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="size"
-                    id="sizeMedium"
-                    autoComplete="off"
-                    defaultChecked
-                  />
-                  <label
-                    className="btn btn-outline-primary"
-                    htmlFor="sizeMedium"
-                  >
-                    Mediano
-                  </label>
-
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="size"
-                    id="sizeLarge"
-                    autoComplete="off"
-                  />
-                  <label className="btn btn-outline-primary" htmlFor="sizeLarge">
-                    Grande
-                  </label>
-                </div>
-              </div>
-              <div className="mb-3">
-                <h6>Quita algo</h6>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="noOnion"
-                  />
-                  <label className="form-check-label" htmlFor="noOnion">
-                    Sin cebolla
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="noLettuce"
-                  />
-                  <label className="form-check-label" htmlFor="noLettuce">
-                    Sin lechuga
-                  </label>
-                </div>
-              </div>
-              <div className="mb-3">
-                <h6>Añadir un ingrediente</h6>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="addCheese"
-                  />
-                  <label className="form-check-label" htmlFor="addCheese">
-                    Queso extra
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="addBacon"
-                  />
-                  <label className="form-check-label" htmlFor="addBacon">
-                    Tocino
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary">
-                Agregar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ModalProduct selectedProduct={selectedProduct} modalRef={modalRef} />
 
       <CartOffcanvas total="33.02">
       </CartOffcanvas>
