@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
+import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import CartOffcanvas from "../components/Cart/CartOffcanvas";
+import ModalProduct from "../components/Product/ModalProduct";
+
 function Menu() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const modalRef = useRef(null);
+
+  const handleCardClick = (product) => {
+    setSelectedProduct(product);
+    const ms = new bootstrap.Modal(modalRef.current);
+    ms.show();
+  };
+
   return (
     <div className="menu-page">
       <nav className="navbar bg-body-tertiary ustify-content-center">
@@ -11,59 +24,59 @@ function Menu() {
         </div>
       </nav>
 
-      <div class="container py-4">
-        <div class="d-flex justify-content-center gap-4 flex-wrap category-wrapper">
+      <div className="container py-4">
+        <div className="d-flex justify-content-center gap-4 flex-wrap category-wrapper">
           <Link
             to="/bowls"
-            class="category-item active"
+            className="category-item active"
             style={{ textDecoration: "none" }}
           >
-            <div class="category-icon">🥣</div>
+            <div className="category-icon">🥣</div>
             <span className="text-black">Bowls</span>
           </Link>
 
           <Link
             to="/hamburguesas"
-            class="category-item"
+            className="category-item"
             style={{ textDecoration: "none" }}
           >
-            <div class="category-icon">🍔</div>
+            <div className="category-icon">🍔</div>
             <span className="text-black">Hamburguesas</span>
           </Link>
 
           <Link
             to="/hot-dogs"
-            class="category-item"
+            className="category-item"
             style={{ textDecoration: "none" }}
           >
-            <div class="category-icon">🌭</div>
+            <div className="category-icon">🌭</div>
             <span className="text-black">Hot Dogs</span>
           </Link>
 
           <Link
             to="/acompañantes"
-            class="category-item"
+            className="category-item"
             style={{ textDecoration: "none" }}
           >
-            <div class="category-icon">🥟</div>
+            <div className="category-icon">🥟</div>
             <span className="text-black">Acompañantes</span>
           </Link>
 
           <Link
             to="/acompañantes"
-            class="category-item"
+            className="category-item"
             style={{ textDecoration: "none" }}
           >
-            <div class="category-icon">🥤</div>
+            <div className="category-icon">🥤</div>
             <span className="text-black">Bebidas</span>
           </Link>
 
           <Link
             to="/postres"
-            class="category-item"
+            className="category-item"
             style={{ textDecoration: "none" }}
           >
-            <div class="category-icon">🍦</div>
+            <div className="category-icon">🍦</div>
             <span className="text-black">Postres</span>
           </Link>
         </div>
@@ -86,77 +99,43 @@ function Menu() {
         </div>
         <br /> <br />
         <div className="row g-4">
-          <div class="col col-sm-6 col-md-4">
-            <div class="product-card text-center p-3">
-              <img
-                src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile"
-                class="img-fluid product-img mb-2"
-                alt="Big King"
-              />
-              <h6 class="fw-bold mb-1">Big King</h6>
-              <p class="price mb-0">$ 4.10</p>
+          {[
+            {
+              name: "Big King",
+              description: "Deliciosa hamburguesa con doble carne, queso, lechuga y salsa especial.",
+              price: 4.1,
+              img:
+                "https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile",
+            },
+            {
+              name: "Whopper",
+              description: "Clásica hamburguesa con carne a la parrilla, tomate, lechuga, mayonesa y ketchup.",
+              price: 4.19,
+              img:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YDCJqgMFtsD9dBn2uch0RTrROXHmvr1vnw&s",
+            },
+            {
+              name: "Rodeo Whopper",
+              description: "Hamburguesa con carne a la parrilla, aros de cebolla crujientes, salsa barbacoa, lechuga y mayonesa.",
+              price: 2.99,
+              img: "https://images.rappi.com/restaurants_background/home76-1747260915136.jpg",
+            },
+          ].map((prod, idx) => (
+            <div className="col col-sm-6 col-md-4" key={idx}>
+              <div
+                className="product-card text-center p-3"
+                onClick={() => handleCardClick(prod)}
+              >
+                <img
+                  src={prod.img}
+                  className="img-fluid product-img mb-2"
+                  alt={prod.name}
+                />
+                <h6 className="fw-bold mb-1">{prod.name}</h6>
+                <p className="price mb-0">$ {prod.price.toFixed(2)}</p>
+              </div>
             </div>
-          </div>
-
-          <div class="col col-sm-6 col-md-4">
-            <div class="product-card text-center p-3">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YDCJqgMFtsD9dBn2uch0RTrROXHmvr1vnw&s"
-                class="img-fluid product-img mb-2"
-                alt="Whopper"
-              />
-              <h6 class="fw-bold mb-1">Whopper</h6>
-              <p class="price mb-0">$ 4.19</p>
-            </div>
-          </div>
-
-          <div class="col col-sm-6 col-md-4">
-            <div class="product-card text-center p-3">
-              <img
-                src="https://images.rappi.com/restaurants_background/home76-1747260915136.jpg"
-                class="img-fluid product-img mb-2"
-                alt="Rodeo Whopper"
-              />
-              <h6 class="fw-bold mb-1">Rodeo Whopper</h6>
-              <p class="price mb-0">$ 2.99</p>
-            </div>
-          </div>
-
-          <div class="col col-sm-6 col-md-4">
-            <div class="product-card text-center p-3">
-              <img
-                src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile"
-                class="img-fluid product-img mb-2"
-                alt="Big King"
-              />
-              <h6 class="fw-bold mb-1">Big King</h6>
-              <p class="price mb-0">$ 4.10</p>
-            </div>
-          </div>
-
-          <div class="col col-sm-6 col-md-4">
-            <div class="product-card text-center p-3">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4YDCJqgMFtsD9dBn2uch0RTrROXHmvr1vnw&s"
-                class="img-fluid product-img mb-2"
-                alt="Whopper"
-              />
-              <h6 class="fw-bold mb-1">Whopper</h6>
-              <p class="price mb-0">$ 4.19</p>
-            </div>
-          </div>
-
-          <div class="col col-sm-6 col-md-4">
-            <div class="product-card text-center p-3">
-              <img
-                src="https://images.rappi.com/restaurants_background/home76-1747260915136.jpg"
-                class="img-fluid product-img mb-2"
-                alt="Rodeo Whopper"
-              />
-              <h6 class="fw-bold mb-1">Rodeo Whopper</h6>
-              <p class="price mb-0">$ 2.99</p>
-            </div>
-          </div>
+          ))}
         </div>
         <br />
         <div className="row g-4">
@@ -207,6 +186,9 @@ function Menu() {
           Pagar
         </Link>
       </div>
+
+      {/* product configuration modal */}
+      <ModalProduct selectedProduct={selectedProduct} modalRef={modalRef} />
 
       <CartOffcanvas total="33.02">
       </CartOffcanvas>
