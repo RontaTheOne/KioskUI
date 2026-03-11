@@ -8,8 +8,7 @@ import "./assets/styles/CartMenu.css";
 import Layout from "./components/layout/layout.jsx";
 import Start from "./components/layout/StartScreen.jsx";
 import OrderType from "./components/layout/OrderType.jsx";
-import Menu from "./pages/Menu.jsx";
-import Cart from "./pages/Cart.jsx";
+import Menu from "./pages/Menu.jsx";;
 import Checkout from "./pages/Checkout.jsx";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path="/" element={<Start />} />
           <Route path="/order-type" element={<OrderType />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/Cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
