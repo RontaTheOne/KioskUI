@@ -3,6 +3,8 @@ import { useState, useRef } from "react";
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import CartOffcanvas from "../components/Cart/CartOffcanvas";
 import ModalProduct from "../components/Product/ModalProduct";
+import ProductMenu from "../components/Menu/ProductMenu";
+import Nav from "../components/Menu/Nav";
 
 function Menu() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -16,70 +18,10 @@ function Menu() {
 
   return (
     <div className="menu-page">
-      <nav className="navbar bg-body-tertiary ustify-content-center">
-        <div className="container">
-          <Link className="navbar-brand mx-auto" to="/menu">
-            <img src="/kiosk-logo.svg" alt="Kiosk App Logo" width="150" />
-          </Link>
-        </div>
-      </nav>
-
+      <Nav />
+      
       <div className="container py-4">
-        <div className="d-flex justify-content-center gap-4 flex-wrap category-wrapper">
-          <Link
-            to="/bowls"
-            className="category-item active"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🥣</div>
-            <span className="text-black">Bowls</span>
-          </Link>
-
-          <Link
-            to="/hamburguesas"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🍔</div>
-            <span className="text-black">Hamburguesas</span>
-          </Link>
-
-          <Link
-            to="/hot-dogs"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🌭</div>
-            <span className="text-black">Hot Dogs</span>
-          </Link>
-
-          <Link
-            to="/acompañantes"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🥟</div>
-            <span className="text-black">Acompañantes</span>
-          </Link>
-
-          <Link
-            to="/acompañantes"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🥤</div>
-            <span className="text-black">Bebidas</span>
-          </Link>
-
-          <Link
-            to="/postres"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🍦</div>
-            <span className="text-black">Postres</span>
-          </Link>
-        </div>
+        <ProductMenu />
         <br/> <br/>
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="mb-0">¿Qué quieres comer hoy?</h2>
