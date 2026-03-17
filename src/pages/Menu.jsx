@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import CartOffcanvas from "../components/Cart/CartOffcanvas";
+import CartSummaryBar from "../components/Cart/CartSummaryBar";
 import ModalProduct from "../components/Product/ModalProduct";
+import ProductMenu from "../components/Menu/ProductMenu";
+import Nav from "../components/Menu/Nav";
 
 function Menu() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -16,70 +19,10 @@ function Menu() {
 
   return (
     <div className="menu-page">
-      <nav className="navbar bg-body-tertiary ustify-content-center">
-        <div className="container">
-          <Link className="navbar-brand mx-auto" to="/menu">
-            <img src="/kiosk-logo.svg" alt="Kiosk App Logo" width="150" />
-          </Link>
-        </div>
-      </nav>
-
+      <Nav />
+      
       <div className="container py-4">
-        <div className="d-flex justify-content-center gap-4 flex-wrap category-wrapper">
-          <Link
-            to="/bowls"
-            className="category-item active"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🥣</div>
-            <span className="text-black">Bowls</span>
-          </Link>
-
-          <Link
-            to="/hamburguesas"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🍔</div>
-            <span className="text-black">Hamburguesas</span>
-          </Link>
-
-          <Link
-            to="/hot-dogs"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🌭</div>
-            <span className="text-black">Hot Dogs</span>
-          </Link>
-
-          <Link
-            to="/acompañantes"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🥟</div>
-            <span className="text-black">Acompañantes</span>
-          </Link>
-
-          <Link
-            to="/acompañantes"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🥤</div>
-            <span className="text-black">Bebidas</span>
-          </Link>
-
-          <Link
-            to="/postres"
-            className="category-item"
-            style={{ textDecoration: "none" }}
-          >
-            <div className="category-icon">🍦</div>
-            <span className="text-black">Postres</span>
-          </Link>
-        </div>
+        <ProductMenu />
         <br/> <br/>
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="mb-0">¿Qué quieres comer hoy?</h2>
@@ -161,35 +104,10 @@ function Menu() {
         
       </div>
 
-      <div className="cart-bar d-flex align-items-center justify-content-between px-4">
-        {/* Total */}
-        <div className="total-section">
-          <small className="text-muted d-block">Total</small>
-          <span className="fw-bold fs-5">$ 33.02</span>
-        </div>
+      <CartSummaryBar />
 
-        {/* Carrito*/}
-        <button
-          type="button"
-          className="cart-wrapper position-relative d-flex align-items-center justify-content-center"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#cartOffcanvas"
-          aria-controls="cartOffcanvas"
-        >
-          <i className="bi bi-cart-fill cart-icon"></i>
-          {/* Badge */}
-          <span className="cart-badge">0</span>
-        </button>
-
-        {/* Botón pagar */}
-        <Link to="/checkout" className="btn btn-danger pay-btn">
-          Pagar
-        </Link>
-      </div>
-
-      {/* product configuration modal */}
+      {/*Modal Mi Orden*/}
       <ModalProduct selectedProduct={selectedProduct} modalRef={modalRef} />
-
       <CartOffcanvas total="33.02">
       </CartOffcanvas>
 
